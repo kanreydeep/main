@@ -27,8 +27,12 @@ let USER = 'test_user';
 let HASH = 'test_hash';
 
 function updateConstants(selectedApp) {
-    APP_TOKEN = appConfigs[selectedApp].appToken;
-    PROMO_ID = appConfigs[selectedApp].promoId;
+    if (appConfigs[selectedApp]) {
+        APP_TOKEN = appConfigs[selectedApp].appToken;
+        PROMO_ID = appConfigs[selectedApp].promoId;
+    } else {
+        console.error('Selected app not found in configuration.');
+    }
 }
 
 function generateClientId() {
@@ -191,9 +195,7 @@ async function findValidKeys(numKeys) {
     const keyPromises = Array.from({ length: numKeys }, () => generateSingleKey());
     const keys = await Promise.all(keyPromises);
 
-    const validKeys = keys.filter(key => key !==
-
- null);
+    const validKeys = keys.filter(key => key !== null);
     if (validKeys.length > 0) {
         appendToDisplay(`Valid keys found: ${validKeys.join(', ')}`);
     } else {
