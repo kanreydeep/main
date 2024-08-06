@@ -5,14 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HamsterHack by Doxecy</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon"> <!-- Добавлено для favicon -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container">
         <header>
             <p>Создатель Doxecy</p>
         </header>
-        <h1>Генератор ключей Hamster Kombat</h1>
+        <h1>Генератор ключей Bike Ride 3D</h1>
+        <header>
+            <p>Создано для Hamster Kombat !</p>
+        </header>
+        
+        <!-- Новый select для выбора игры -->
+        <label for="gameSelect">Выберите игру:</label>
+        <select id="gameSelect">
+            <option value="Bike">Bike Ride 3D</option>
+            <option value="Clone">My Clone Army</option>
+            <option value="Chain">Chain Cube 2048</option>
+            <option value="Train">Train Miner</option>
+        </select>
+
+        <label for="keyCountSelect">Количество ключей:</label>
         <select id="keyCountSelect">
             <option value="1">1 Ключ</option>
             <option value="2">2 Ключа</option>
@@ -20,6 +34,7 @@
             <option value="4">4 Ключа</option>
         </select>
         <button id="startBtn">Начать</button>
+
         <div id="progressContainer" class="hidden">
             <div id="progressBar"></div>
             <span id="progressText">0%</span>
