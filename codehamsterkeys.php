@@ -1,3 +1,151 @@
+
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор кодов Hamster Kombat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .form-container {
+            width: 48%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: auto;
+        }
+        .form-container h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .form-container > * {
+            margin-bottom: 10px;
+        }
+        input[type="file"],
+        input[type="text"],
+        textarea,
+        select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 4"><path d="M4 4L0 0h8z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 8px;
+        }
+        button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: block;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .custom-file-upload {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .custom-file-upload input[type="file"] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 100px;
+            cursor: pointer;
+            opacity: 0;
+        }
+        label {
+            display: block;
+        }
+        #jsonDataDisplay {
+            white-space: pre;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+            overflow-x: auto;
+            max-height: 100px;
+        }
+        .json-key {
+            color: red;
+        }
+        .json-string {
+            color: green;
+        }
+        .json-boolean {
+            color: goldenrod;
+        }
+        @media screen and (min-width: 801px) {
+            .container {
+                gap: 20px;
+            }
+        }
+        @media screen and (max-width: 800px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .form-container {
+                width: 95%;
+                margin-bottom: 20px;
+            }
+            #jsonDataDisplay {
+                width: 95%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Выберите игру для генерации ключей</h2>
+            <label for="appSelect">Игра:</label>
+            <select id="appSelect" onchange="updateConstants()">
+                <option value="Bike">Bike Ride 3D</option>
+                <option value="Clone">My Clone Army</option>
+                <option value="Chain">Chain Cube 2048</option>
+                <option value="Train">Train Miner</option>
+            </select>
+            <button onclick="generateKeys()">Сгенерировать ключи</button>
+        </div>
+
+        <div class="form-container">
+            <h2>Процесс получения ключей</h2>
+            <pre id="jsonDataDisplay" class="key-display"></pre>
+        </div>
+    </div>
+
     <script>
 
         const appConfigs = {
@@ -212,3 +360,46 @@
             findValidKeys(NUM_KEYS_TO_GENERATE);
         }
     </script>
+<div class="container">
+<p style="text-align: center;"><strong>Поддержите, пожалуйста, донатом:</strong></p>
+<table style="width: 443px; border-color: #191970; margin-left: auto; margin-right: auto;" border="1">
+<tbody>
+<tr style="height: 13px;">
+<td style="width: 152.763px; height: 13px; text-align: justify;"><strong>ЮМани</strong></td>
+<td style="width: 295.237px; height: 13px;"><em>4100118047418157</em></td>
+</tr>
+<tr style="height: 13px;">
+<td style="width: 152.763px; height: 13px;"><strong>Solana</strong></td>
+<td style="width: 295.237px; height: 13px;"><em>DLUMdZXkhJKy2TDXwZ9VYqSizaVRY4Nez8KDVri8Pzzx</em></td>
+</tr>
+<tr style="height: 13.5875px;">
+<td style="width: 152.763px; height: 13.5875px;"><strong>USDT TRC-20</strong></td>
+<td style="width: 295.237px; height: 13.5875px;"><em>TXXZQ8RsbrYaLi7MCmMhjpyiYjY5TbGdC4</em></td>
+</tr>
+<tr style="height: 13px;">
+<td style="width: 152.763px; height: 13px;"><strong>USDT (TON)</strong></td>
+<td style="width: 295.237px; height: 13px;"><em>UQBMqJF2xA5_iaTKjeVbMPZ8Uja9xKVkq1DCZV5Hyd4hb8NG</em></td>
+</tr>
+<tr style="height: 13px;">
+<td style="width: 152.763px; height: 13px;"><strong>Bitcoin</strong></td>
+<td style="width: 295.237px; height: 13px;"><em>1AEQHwoRjMhvkhgJq1Rp5THXqZNaA2aNER</em></td>
+</tr>
+<tr style="height: 13px;">
+<td style="width: 152.763px; height: 13px;"><strong>Ethereum</strong></td>
+<td style="width: 295.237px; height: 13px;"><em>0xFB450604A461b16f2397445d4BBA774a7427B8e5</em></td>
+</tr>
+<tr style="height: 13px;">
+<td style="width: 152.763px; height: 13px;"><strong>TRX</strong></td>
+<td style="width: 295.237px; height: 13px;"><em>TGuzyNPhQ6koLhg2fYrHWaQfEnqR2TsgJv</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<footer>
+<a href="https://hamster-referals.ru/order" target="_blank">
+  <button id="creatorChannelBtn">
+    Закажи себе рефералов в Hamster Kombat, Dogs и другие проекты!
+  </button>
+</a>
+        </footer>
+</body></html>
